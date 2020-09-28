@@ -15,8 +15,13 @@ class BooksController extends Controller
         return response()->json($book);
     }
 
+    public function store(Book $book, Request $request)
+    {
+        $book->create($request->all());
+    }
+
     public function destroy(Book $book)
     {
-       $book->delete();
+        $book->delete();
     }
 }
