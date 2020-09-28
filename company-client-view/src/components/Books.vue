@@ -8,6 +8,7 @@
                     <td>{{book.name}}</td>
                     <td>{{book.author}}</td>
                     <td>{{book.created_at}}</td>
+                    <td> <button v-on:click="removeBook(book.id, key)">🗑</button> </td>
                 </tr>
             </table>
         </div>
@@ -34,6 +35,15 @@
         methods: {
             getBooks() {
                 axios.get('http://127.0.0.1:8000/api/books').then((response) => {
+                    this.books = response.data;
+                    console.log(response);
+                }).catch((error) => {
+                    console.log(error);
+                })
+            },
+
+            removeBook(id) {
+                axios.delete('http://127.0.0.1:8000/api/books/' + id).then((response) => {
                     this.books = response.data;
                     console.log(response);
                 }).catch((error) => {

@@ -14,4 +14,9 @@ class BooksController extends Controller
         $book = Book::all();
         return response()->json($book);
     }
+
+    public function destroy(Book $book)
+    {
+       $book->delete();
+    }
 }
