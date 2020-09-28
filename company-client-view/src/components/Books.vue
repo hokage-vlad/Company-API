@@ -1,6 +1,10 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
+        <div v-if="errors">
+                <span style="color:red" v-text="errors.name[0]" ></span><br>
+                <span style="color:red" v-text="errors.author[0]" ></span>
+        </div>
         <form @submit.prevent="addBook">
             <input type="text" placeholder="Book Name" name="name" v-model="name">
             <input type="text" placeholder="Book Author" name="author" v-model="author">
@@ -34,6 +38,7 @@
 
         data() {
             return {
+                errors: '',
                 books: {},
                 name: '',
                 author: '',
@@ -53,6 +58,7 @@
                     this.success = response.data.success;
                     this.getBooks()
                 }).catch(error => {
+                    this.errors = error.response.data.errors;
                     console.log(error.response)
                 });
             },
