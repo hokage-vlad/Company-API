@@ -13,13 +13,19 @@
         </form>
         <div v-for="(book , key) in books" :key="key">
             <form @submit.prevent="editBook(book)">
-                <table class="table table-dark">
-                        <td scope="col">{{book.id}}</td>
-                        <td>{{book.name}} <input type="text" placeholder="Book Name" v-model="book.name"></td>
-                        <td>{{book.author}} <input type="text" placeholder="Book Author" v-model="book.author"></td>
-                        <td>{{book.price}} <input type="number" placeholder="Book Price" v-model="book.price"></td>
+                <table class="table table-bordered">
+                        <td>{{book.id}}</td>
+                        <td>{{book.name}} <input  v-if="isActive === key" type="text" placeholder="Book Name" v-model="book.name"></td>
+                        <td>{{book.author}} <input v-if="isActive === key" type="text" placeholder="Book Author" v-model="book.author"></td>
+                        <td>{{book.price}} <input v-if="isActive === key" type="number" placeholder="Book Price" v-model="book.price"></td>
                         <td>{{book.created_at.substring(0,10)}}</td>
+                    <div v-if="isActive !== key">
+                        <td><a class="btn btn-light" v-on:click="toggleItem(key)" v-bind="{active: isActive === key}">Edit</a></td>
+                    </div>
+                    <div v-if="isActive === key">
                         <td><button class="btn btn-warning">Update</button></td>
+                        <td><a class="btn btn-a" v-on:click="toggleItem(null)">Close</a></td>
+                    </div>
                         <td><button class="btn btn-danger" v-on:click="removeBook(book)">🗑</button></td>
                 </table>
             </form>
@@ -37,6 +43,7 @@
 
         data() {
             return {
+                isActive: false,
                 books: [],
                 book: {
                     name: '',
@@ -50,6 +57,9 @@
             this.getBooks();
         },
         methods: {
+            toggleItem(index) {
+                this.isActive = index;
+            },
 
             addBook() {
                 axios.post('http://127.0.0.1:8000/api/books', this.book).then(response => {
@@ -109,4 +119,5 @@
     a {
         color: #42b983;
     }
+
 </style>
