@@ -5,31 +5,54 @@
             <span class="text-danger" v-text="errors.name[0]"></span><br>
             <span class="text-danger" v-text="errors.author[0]"></span>
         </div>
-        <form @submit.prevent="addBook">
+        <form @submit.prevent="addBook" class="m-4">
             <input type="text" placeholder="Book Name" v-model="book.name">
             <input type="text" placeholder="Book Author" v-model="book.author">
             <input type="number" placeholder="Book Price" v-model="book.price">
             <button class="btn-success">Add</button>
         </form>
-        <div v-for="(book , key) in books" :key="key">
-            <form @submit.prevent="editBook(book)">
-                <table class="table table-bordered">
-                        <td>{{book.id}}</td>
-                        <td>{{book.name}} <input  v-if="isActive === key" type="text" placeholder="Book Name" v-model="book.name"></td>
-                        <td>{{book.author}} <input v-if="isActive === key" type="text" placeholder="Book Author" v-model="book.author"></td>
-                        <td>{{book.price}} <input v-if="isActive === key" type="number" placeholder="Book Price" v-model="book.price"></td>
-                        <td>{{book.created_at.substring(0,10)}}</td>
-                    <div v-if="isActive !== key">
-                        <td><a class="btn btn-light" v-on:click="toggleItem(key)" v-bind="{active: isActive === key}">Edit</a></td>
-                    </div>
-                    <div v-if="isActive === key">
-                        <td><button class="btn btn-warning">Update</button></td>
-                        <td><a class="btn btn-a" v-on:click="toggleItem(null)">Close</a></td>
-                    </div>
-                        <td><button class="btn btn-danger" v-on:click="removeBook(book)">🗑</button></td>
+            <div v-if="books.length != 0">
+            <div v-for="(book , key) in books" :key="key">
+                <table class="m-auto">
+                    <tr>
+                        <td class="d-flex">
+                        <form @submit.prevent="editBook(book)">
+                            <table class="table-bordered">
+                                <tr>
+                                    <td class="p-3"><span class="font-weight-bold">Id:</span> {{book.id}}</td>
+                                    <td class="p-3"><span class="font-weight-bold">Name:</span> {{book.name}} <input v-if="isActive === key" type="text" placeholder="Book Name" v-model="book.name"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Autor:</span> {{book.author}} <input v-if="isActive === key" type="text" placeholder="Book Author" v-model="book.author"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Price:</span> {{book.price}} <input v-if="isActive === key" type="number" placeholder="Book Price" v-model="book.price"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Date:</span> {{book.created_at.substring(0,10)}}</td>
+
+                                <div v-if="isActive !== key">
+                                    <td><a class="btn btn-info text-white p-3" v-on:click="toggleItem(key)" v-bind="{active: isActive === key}">Edit</a></td>
+                                </div>
+                                <div v-if="isActive === key">
+                                    <td> <button class="btn btn-warning p-3">Update</button></td>
+                                    <td><a class="btn btn-a p-3" v-on:click="toggleItem(null)">Close</a></td>
+                                </div>
+                                </tr>
+                            </table>
+                        </form>
+
+                            <form @submit.prevent="removeBook(book)">
+                                <table class="table-bordered ">
+                                    <tr>
+                                        <td><button class="btn btn-danger text-white p-3">X</button></td>
+                                    </tr>
+                                </table>
+                            </form>
+
+                        </td>
+                    </tr>
+
                 </table>
-            </form>
-        </div>
+            </div>
+            </div>
+            <div v-else>
+                <span class="h2"> Empty 😔 </span>
+            </div>
     </div>
 </template>
 
