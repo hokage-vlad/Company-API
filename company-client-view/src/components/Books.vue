@@ -21,7 +21,7 @@
                         </li>
                         <li>{{book.price}} <input type="number" placeholder="Book Price" v-model="book.price">
                         </li>
-                        <li>{{book.created_at}}</li>
+                        <li>{{book.created_at.substring(0,10)}}</li>
                         <button>Update</button>
                     </form>
                     <td>
@@ -57,6 +57,7 @@
             this.getBooks();
         },
         methods: {
+
             addBook() {
                 axios.post('http://127.0.0.1:8000/api/books', this.book).then(response => {
                     this.success = response.data.success;
