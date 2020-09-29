@@ -1,10 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
-//import Axios from 'axios'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
-Vue.config.productionTip = false
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-//Axios.default.baseUrl = 'http://127.0.0.1:8000';
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
+
+Vue.config.productionTip = false;
+
 
 new Vue({
   render: h => h(App),

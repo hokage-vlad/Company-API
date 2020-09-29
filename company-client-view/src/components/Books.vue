@@ -2,33 +2,27 @@
     <div class="hello">
         <h1>{{ msg }}</h1>
         <div v-if="errors">
-            <span style="color:red" v-text="errors.name[0]"></span><br>
-            <span style="color:red" v-text="errors.author[0]"></span>
+            <span class="text-danger" v-text="errors.name[0]"></span><br>
+            <span class="text-danger" v-text="errors.author[0]"></span>
         </div>
         <form @submit.prevent="addBook">
             <input type="text" placeholder="Book Name" v-model="book.name">
             <input type="text" placeholder="Book Author" v-model="book.author">
             <input type="number" placeholder="Book Price" v-model="book.price">
-            <button>Add</button>
+            <button class="btn-success">Add</button>
         </form>
         <div v-for="(book , key) in books" :key="key">
-            <table border="1">
-                <ul>
-                    <form @submit.prevent="editBook(book)">
-                        <li>{{book.id}}</li>
-                        <li>{{book.name}} <input type="text" placeholder="Book Name" v-model="book.name"></li>
-                        <li>{{book.author}} <input type="text" placeholder="Book Author" v-model="book.author">
-                        </li>
-                        <li>{{book.price}} <input type="number" placeholder="Book Price" v-model="book.price">
-                        </li>
-                        <li>{{book.created_at.substring(0,10)}}</li>
-                        <button>Update</button>
-                    </form>
-                    <td>
-                        <button v-on:click="removeBook(book)">🗑</button>
-                    </td>
-                </ul>
-            </table>
+            <form @submit.prevent="editBook(book)">
+                <table class="table table-dark">
+                        <td scope="col">{{book.id}}</td>
+                        <td>{{book.name}} <input type="text" placeholder="Book Name" v-model="book.name"></td>
+                        <td>{{book.author}} <input type="text" placeholder="Book Author" v-model="book.author"></td>
+                        <td>{{book.price}} <input type="number" placeholder="Book Price" v-model="book.price"></td>
+                        <td>{{book.created_at.substring(0,10)}}</td>
+                        <td><button class="btn btn-warning">Update</button></td>
+                        <td><button class="btn btn-danger" v-on:click="removeBook(book)">🗑</button></td>
+                </table>
+            </form>
         </div>
     </div>
 </template>
@@ -50,7 +44,6 @@
                     price: '',
                 },
                 errors: '',
-
             }
         },
         mounted() {
@@ -64,7 +57,6 @@
                     this.getBooks()
                 }).catch(error => {
                     this.errors = error.response.data.errors;
-                    console.log(error.response)
                 });
             },
 
