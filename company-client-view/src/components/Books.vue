@@ -2,27 +2,32 @@
     <div class="hello">
         <h1>{{ msg }}</h1>
         <div v-if="errors">
-                <span style="color:red" v-text="errors.name[0]" ></span><br>
-                <span style="color:red" v-text="errors.author[0]" ></span>
+            <span style="color:red" v-text="errors.name[0]"></span><br>
+            <span style="color:red" v-text="errors.author[0]"></span>
         </div>
         <form @submit.prevent="addBook">
-            <input type="text" placeholder="Book Name" name="name" v-model="name">
-            <input type="text" placeholder="Book Author" name="author" v-model="author">
-            <input type="number" placeholder="Book Price" name="price" v-model="price">
+            <input type="text" placeholder="Book Name" v-model="book.name">
+            <input type="text" placeholder="Book Author" v-model="book.author">
+            <input type="number" placeholder="Book Price" v-model="book.price">
             <button>Add</button>
         </form>
         <div v-for="(book , key) in books" :key="key">
             <table border="1">
-                <tr>
-                    <td>{{book.id}}</td>
-                    <td>{{book.name}}</td>
-                    <td>{{book.author}}</td>
-                    <td>{{book.price}}</td>
-                    <td>{{book.created_at}}</td>
+                <ul>
+                    <form @submit.prevent="editBook(book)">
+                        <li>{{book.id}}</li>
+                        <li>{{book.name}} <input type="text" placeholder="Book Name" v-model="book.name"></li>
+                        <li>{{book.author}} <input type="text" placeholder="Book Author" v-model="book.author">
+                        </li>
+                        <li>{{book.price}} <input type="number" placeholder="Book Price" v-model="book.price">
+                        </li>
+                        <li>{{book.created_at}}</li>
+                        <button>Update</button>
+                    </form>
                     <td>
-                        <button v-on:click="removeBook(book.id, key)">🗑</button>
+                        <button v-on:click="removeBook(book)">🗑</button>
                     </td>
-                </tr>
+                </ul>
             </table>
         </div>
     </div>
@@ -38,11 +43,14 @@
 
         data() {
             return {
+                books: [],
+                book: {
+                    name: '',
+                    author: '',
+                    price: '',
+                },
                 errors: '',
-                books: {},
-                name: '',
-                author: '',
-                price: ''
+
             }
         },
         mounted() {
@@ -50,11 +58,7 @@
         },
         methods: {
             addBook() {
-                axios.post('http://127.0.0.1:8000/api/books', {
-                    name: this.name,
-                    author: this.author,
-                    price: this.price,
-                }).then(response => {
+                axios.post('http://127.0.0.1:8000/api/books', this.book).then(response => {
                     this.success = response.data.success;
                     this.getBooks()
                 }).catch(error => {
@@ -72,10 +76,20 @@
                 })
             },
 
-            removeBook(id) {
-                axios.delete('http://127.0.0.1:8000/api/books/' + id).then((response) => {
-                    this.books = response.data;
-                    console.log(response);
+            removeBook(book) {
+                axios.delete('http://127.0.0.1:8000/api/books/' + book.id).then((response) => {
+                    this.success = response.data.success;
+                    this.getBooks()
+                }).catch((error) => {
+                    console.log(error);
+                })
+            },
+
+            editBook(book) {
+                axios.put('http://127.0.0.1:8000/api/books/' + book.id, book).then((response) => {
+                    this.success = response.data.success;
+                    this.getBooks()
+                    console.log(response.data);
                 }).catch((error) => {
                     console.log(error);
                 })

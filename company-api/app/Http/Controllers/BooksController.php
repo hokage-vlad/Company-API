@@ -23,6 +23,12 @@ class BooksController extends Controller
 
     public function destroy(Book $book)
     {
-        $book->delete();
+        return $book->delete();
+    }
+
+    public function update(Book $book, Request $request)
+    {
+        $book->update($request->all());
+        return response()->json(['message'=>'updated']);
     }
 }
