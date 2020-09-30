@@ -8,12 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
-
-        return response()->json($user, 200);
-    }
 
     public function login(Request $request)
     {
