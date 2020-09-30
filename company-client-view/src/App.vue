@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Books msg="Books App"/>
+    <router-view></router-view>
   </div>
 </template>
 
