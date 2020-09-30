@@ -1,21 +1,18 @@
 <template>
     <div id="app">
-        <navbar :App="this"></navbar>
-        <Books msg="Books App"/>
+        <Navbar></Navbar>
         <router-view/>
     </div>
 </template>
 
 <script>
     import Navbar from './components/NavBar'
-    import Books from './components/Books.vue'
     import axios from 'axios';
 
     export default {
         name: 'App',
         components: {
             Navbar,
-            Books
         },
 
         data() {

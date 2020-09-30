@@ -1,13 +1,11 @@
 <template>
-    
+    <div><h1>AAAAs</h1></div>
 </template>
 
 <script>
-    export default {
-        name: "Login.vue"
-    }
+
 </script>
 
-<style scoped>
+<style>
 
 </style>
