@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="40285223-1709-41ad-823e-4ceae3f21207" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +153,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601375721115</updated>
       <workItem from="1601375759548" duration="20000" />
-      <workItem from="1601466169892" duration="3794000" />
+      <workItem from="1601466169892" duration="4862000" />
     </task>
     <servers />
   </component>
