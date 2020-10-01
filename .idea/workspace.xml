@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40285223-1709-41ad-823e-4ceae3f21207" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-api/app/Http/Requests/BooksRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Http/Requests/BooksRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +165,8 @@
       <updated>1601375721115</updated>
       <workItem from="1601375759548" duration="20000" />
       <workItem from="1601466169892" duration="9265000" />
-      <workItem from="1601545636216" duration="13291000" />
+      <workItem from="1601545636216" duration="14975000" />
+      <workItem from="1601583330692" duration="2998000" />
     </task>
     <servers />
   </component>
@@ -175,9 +182,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="337" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601548126971" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1601466171309">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1601583333169">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601466171309" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601583333169" />
   </component>
 </project>

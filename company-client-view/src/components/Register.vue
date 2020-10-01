@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="m-auto col-lg-6">
-                <div v-if="errors">
-                    <span class="text-danger" v-text="errors.name[0]"></span><br>
-                    <span class="text-danger" v-text="errors.password[0]"></span><br>
-                    <span class="text-danger" v-text="errors.email[0]"></span><br>
+                <div v-if="errors" class="bg-danger mb-3">
+                    <div v-for="(error , key) in errors" :key="key">
+                        <span class="text-white" v-text="error[0]"></span><br>
+                    </div>
                 </div>
                 <form  @submit.prevent="registerUser">
                     <h2 class="text-center">Sign up</h2>
@@ -38,7 +38,7 @@
                     email: '',
                     password: '',
                 },
-                errors: '',
+                errors: [],
             }
         },
 

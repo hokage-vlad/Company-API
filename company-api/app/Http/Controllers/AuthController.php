@@ -10,9 +10,15 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
+    public function get(Request $request)
+    {
+        return json_encode($request->user());
+    }
+
+
     public function login(Request $request)
     {
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password], true)) {
+        if (Auth::attempt(['name' => $request->name, 'password' => $request->password], true)) {
             return response()->json(Auth::user(), 200);
         }
         return "Error";
@@ -20,7 +26,7 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request, User $user)
     {
-        $currentUser = $user->create($request->all())->where('password',md5($user->password));
+        $currentUser = $user->create($request->all());
         Auth::login($currentUser);
     }
 
