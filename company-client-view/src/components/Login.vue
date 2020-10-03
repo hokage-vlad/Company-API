@@ -7,16 +7,16 @@
                         <span class="text-white" v-text="error[0]"></span><br>
                     </div>
                 </div>
-            <form @submit.prevent="loginUser">
+            <form>
                 <h2 class="text-center">Log in</h2>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name" required="required" v-model="login.name">
+                    <input type="text" class="form-control" placeholder="Email" required="required" v-model="login.email">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" placeholder="Password" required="required" v-model="login.password">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-block">Log in</button>
+                    <button @click.prevent="loginUser" type="submit" class="btn btn-success btn-block">Log in</button>
                 </div>
                 <div class="clearfix">
                     <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
@@ -35,7 +35,7 @@
         data() {
             return {
                 login: {
-                    name: '',
+                    email: '',
                     password: '',
                 },
                 errors: [],
@@ -45,9 +45,10 @@
         methods: {
 
             loginUser() {
-                axios.post('http://127.0.0.1:8000/api/login', this.login).then(() =>
-                    this.$router.push({ path: '/books'
-                })).catch(error => {
+                axios.post('http://127.0.0.1:8000/api/login', this.login).then((response) =>{
+                    //this.$router.push({ path: '/books'
+                        console.log(response);
+                }).catch(error => {
                     this.errors = error.response.data.errors;
                 });
             },

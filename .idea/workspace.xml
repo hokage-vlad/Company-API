@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40285223-1709-41ad-823e-4ceae3f21207" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Company-API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Company-API.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Http/Requests/BooksRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Http/Requests/BooksRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/config/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +146,17 @@
       <path value="$PROJECT_DIR$/company-api/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/company-api/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/company-api/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/company-api/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/company-api/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/company-api/vendor/laravel/passport" />
+      <path value="$PROJECT_DIR$/company-api/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/company-api/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/company-api/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/company-api/vendor/defuse/php-encryption" />
+      <path value="$PROJECT_DIR$/company-api/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/company-api/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/company-api/vendor/league/oauth2-server" />
+      <path value="$PROJECT_DIR$/company-api/vendor/league/event" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iBKoYdLmMdYaspa0UthyFOAD0d" />
@@ -152,6 +169,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\Company-API\company-api\app\Models" />
+      <recent name="D:\xampp\htdocs\Company-API\company-api\app" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -166,7 +189,10 @@
       <workItem from="1601375759548" duration="20000" />
       <workItem from="1601466169892" duration="9265000" />
       <workItem from="1601545636216" duration="14975000" />
-      <workItem from="1601583330692" duration="2998000" />
+      <workItem from="1601583330692" duration="4093000" />
+      <workItem from="1601636598977" duration="12314000" />
+      <workItem from="1601659114954" duration="598000" />
+      <workItem from="1601672242620" duration="4363000" />
     </task>
     <servers />
   </component>
@@ -178,13 +204,21 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="533" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1601470319242" />
+    <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601673892405">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601673892405" />
+    <state x="501" y="228" key="NewPhpClassDialog" timestamp="1601649372582">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="501" y="228" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1601649372582" />
     <state x="604" y="337" key="NewPhpFileDialog" timestamp="1601548126971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="337" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601548126971" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1601583333169">
+    <state x="248" y="168" width="486" height="280" key="com.intellij.ide.util.TipDialog" timestamp="1601672331678">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601583333169" />
+    <state x="248" y="168" width="486" height="280" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601672331678" />
   </component>
 </project>
