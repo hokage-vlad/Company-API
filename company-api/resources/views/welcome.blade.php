@@ -20,6 +20,16 @@
             }
         </style>
     </head>
+@php
+    $hash = 1234;
+    $hashed = md5($hash);
+    $tag = '81dc9bdb52d04dc20036dbd8313ed055';
+    if ($tag == $hashed) {
+        echo 'Password is valid!' . $hashed;
+    } else {
+        echo 'Invalid password.';
+    }
+@endphp
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
