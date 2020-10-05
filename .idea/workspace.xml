@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40285223-1709-41ad-823e-4ceae3f21207" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Company-API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Company-API.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-api/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +182,7 @@
       <workItem from="1601636598977" duration="12314000" />
       <workItem from="1601659114954" duration="598000" />
       <workItem from="1601672242620" duration="4363000" />
+      <workItem from="1601899319111" duration="3025000" />
     </task>
     <servers />
   </component>
