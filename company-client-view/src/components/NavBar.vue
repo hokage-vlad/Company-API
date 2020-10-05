@@ -12,34 +12,26 @@
                     <li class="nav-item active">
                         <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#"></a>
+                        <router-link v-if="!isLoggedIn"  to="/login"><span class="nav-link text-white">Login</span></router-link>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item " href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
+
                     <li class="nav-item">
-                        <router-link to="/books"><span class="nav-link text-white">Books</span></router-link>
+                        <router-link v-if="!isLoggedIn"  to="/register"><span class="nav-link text-white">Register</span></router-link>
                     </li>
+
                     <li class="nav-item">
-                        <router-link to="/login"><span class="nav-link text-white">Login</span></router-link>
+                        <router-link v-if="isLoggedIn"  to="/books"><span class="nav-link text-white">Books</span></router-link>
                     </li>
+
                     <li class="nav-item">
-                        <router-link to="/register"><a class="nav-link text-white">Register</a></router-link>
+                        <a class="nav-item nav-link text-danger font-weight-bold" v-if="isLoggedIn" @click.prevent="logoutUser">Logout</a>
                     </li>
 
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-
+                    {{user.name}}
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -49,22 +41,32 @@
 </template>
 
 <script>
-
+    import axios from 'axios';
+    import { mapGetters } from "vuex";
+    import { mapState } from "vuex";
 
     export default {
-
-        created() {
-
+        computed: {
+            ...mapGetters(["isLoggedIn"]),
+            ...mapState({
+                user: state => state.auth.user
+            })
         },
 
-        data() {
-            return {
-                name: ''
-            }
+        mounted() {
+            axios.get('http://127.0.0.1:8000/api/user').then(response => {
+                this.$store.commit("AUTH_USER", response.data);
+            });
         },
 
         methods: {
-
+            logoutUser() {
+                axios.post('http://127.0.0.1:8000/api/logout').then(() => {
+                    localStorage.removeItem("token");
+                    this.$store.commit("LOGIN_USER", false);
+                    this.$router.push({ path: "/" });
+                });
+            }
         }
-    }
+    };
 </script>

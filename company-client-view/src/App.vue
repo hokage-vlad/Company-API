@@ -7,7 +7,6 @@
 
 <script>
     import Navbar from './components/NavBar'
-    import axios from 'axios';
 
     export default {
         name: 'App',
@@ -20,12 +19,8 @@
                 user: null,
             }
         },
-        methods: {
-          index(){
-            axios.get('http://127.0.0.1:8000/api/auth').then(response => {
-                this.user = response.data.user;
-            })
-          }
+        mounted() {
+            this.$store.commit("LOGIN_USER", !!localStorage.getItem("token"));
         }
     }
 </script>

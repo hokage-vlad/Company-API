@@ -33,7 +33,7 @@ class AuthController extends Controller
         Auth::login($currentUser);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
     }
