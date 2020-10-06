@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import Api from '../api-connect/Api'
 
     export default {
         data() {
@@ -42,13 +42,15 @@
             }
         },
 
+
         methods: {
 
             loginUser() {
-                axios.post('http://127.0.0.1:8000/api/login', this.login).then((response) =>{
+                Api().post('/login', this.login).then((response) =>{
                     this.$store.commit("LOGIN_USER", true);
                     localStorage.setItem("token", response.data);
                     this.$router.push({ path: '/books' });
+
                     console.log(response);
                 }).catch(error => {
                     this.errors = error.response.data.errors;

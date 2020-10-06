@@ -14,11 +14,6 @@
             Navbar,
         },
 
-        data() {
-            return {
-                user: null,
-            }
-        },
         mounted() {
             this.$store.commit("LOGIN_USER", !!localStorage.getItem("token"));
         }

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import Api from '../api-connect/Api'
 
     export default {
         data() {
@@ -45,7 +45,7 @@
         methods: {
 
             registerUser() {
-                axios.post('http://127.0.0.1:8000/api/register', this.register).then(response => {
+                Api().post('/register', this.register).then(response => {
                     this.success = response.data.success;
                 }).catch(error => {
                     this.errors = error.response.data.errors;

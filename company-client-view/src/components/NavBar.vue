@@ -29,9 +29,13 @@
                         <a class="nav-item nav-link text-danger font-weight-bold" v-if="isLoggedIn" @click.prevent="logoutUser">Logout</a>
                     </li>
 
+                    <div v-if="isLoggedIn">
+                        <li class="nav-item">
+                            <h2 class="text-warning">Hello, {{ user.name }}</h2>
+                        </li>
+                    </div>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    {{user.name}}
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -41,9 +45,10 @@
 </template>
 
 <script>
-    import axios from 'axios';
+
     import { mapGetters } from "vuex";
     import { mapState } from "vuex";
+    import Api from '../api-connect/Api'
 
     export default {
         computed: {
@@ -53,15 +58,18 @@
             })
         },
 
-        mounted() {
-            axios.get('http://127.0.0.1:8000/api/user').then(response => {
-                this.$store.commit("AUTH_USER", response.data);
-            });
+        created() {
+
+                Api().get('/user').then(response => {
+                    this.$store.commit("AUTH_USER", response.data);
+                });
+
+
         },
 
         methods: {
             logoutUser() {
-                axios.post('http://127.0.0.1:8000/api/logout').then(() => {
+                Api().post('/logout').then(() => {
                     localStorage.removeItem("token");
                     this.$store.commit("LOGIN_USER", false);
                     this.$router.push({ path: "/" });

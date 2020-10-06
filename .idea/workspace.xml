@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="40285223-1709-41ad-823e-4ceae3f21207" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,10 @@
       <workItem from="1601636598977" duration="12314000" />
       <workItem from="1601659114954" duration="598000" />
       <workItem from="1601672242620" duration="4363000" />
-      <workItem from="1601899319111" duration="14608000" />
+      <workItem from="1601899319111" duration="17905000" />
+      <workItem from="1601953608458" duration="607000" />
+      <workItem from="1601961267775" duration="13579000" />
+      <workItem from="1601986585912" duration="3385000" />
     </task>
     <servers />
   </component>
@@ -214,10 +215,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="337" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601548126971" />
-    <state x="248" y="168" width="486" height="280" key="com.intellij.ide.util.TipDialog" timestamp="1601672331678">
+    <state x="248" y="168" width="486" height="280" key="com.intellij.ide.util.TipDialog" timestamp="1601961272112">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="248" y="168" width="486" height="280" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601672331678" />
+    <state x="248" y="168" width="486" height="280" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601961272112" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1601917375078">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
