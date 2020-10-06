@@ -8,7 +8,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
@@ -25,20 +25,20 @@
                         <router-link v-if="isLoggedIn"  to="/books"><span class="nav-link text-white">Books</span></router-link>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-item nav-link text-danger font-weight-bold" v-if="isLoggedIn" @click.prevent="logoutUser">Logout</a>
-                    </li>
-
-                    <div v-if="isLoggedIn">
-                        <li class="nav-item">
-                            <h2 class="text-warning">Hello, {{ user.name }}</h2>
-                        </li>
-                    </div>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+
+                <form class="form-inline my-2 my-lg-0 m-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+
+                <div v-if="isLoggedIn">
+                    <ul class="navbar-nav">
+                        <li><h5 class="nav-item nav-link text-warning mb-0">Hello, {{ user.name }}</h5></li>
+                        <span class="nav-item nav-link text-white font-weight-bold">|</span>
+                        <li><a class="nav-item nav-link text-danger font-weight-bold" v-if="isLoggedIn" @click.prevent="logoutUser">Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>
@@ -58,13 +58,14 @@
             })
         },
 
-        created() {
-
-                Api().get('/user').then(response => {
-                    this.$store.commit("AUTH_USER", response.data);
-                });
-
-
+        mounted() {
+            let token = localStorage.getItem("token");
+            if(token){
+               Api().get('/user').then(response => {
+                   this.$store.commit("AUTH_USER", response.data);
+                   console.log(response)
+               });
+            }
         },
 
         methods: {

@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="40285223-1709-41ad-823e-4ceae3f21207" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/company-api/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-client-view/src/api-connect/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/api-connect/Api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/NavBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/company-client-view/src/components/Register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +189,7 @@
       <workItem from="1601899319111" duration="17905000" />
       <workItem from="1601953608458" duration="607000" />
       <workItem from="1601961267775" duration="13579000" />
-      <workItem from="1601986585912" duration="3385000" />
+      <workItem from="1601986585912" duration="5760000" />
     </task>
     <servers />
   </component>

@@ -42,7 +42,6 @@
             }
         },
 
-
         methods: {
 
             loginUser() {
@@ -50,7 +49,7 @@
                     this.$store.commit("LOGIN_USER", true);
                     localStorage.setItem("token", response.data);
                     this.$router.push({ path: '/books' });
-
+                    this.$router.go();
                     console.log(response);
                 }).catch(error => {
                     this.errors = error.response.data.errors;
