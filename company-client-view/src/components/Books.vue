@@ -5,10 +5,47 @@
             <span class="text-danger" v-text="errors.name[0]"></span><br>
             <span class="text-danger" v-text="errors.author[0]"></span>
         </div>
-        <form class="m-1">
-            <input class="mr-4" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success " type="submit">Search</button>
-        </form>
+        <div class="m-1">
+            <input class="mr-4" type="text" placeholder="Search" aria-label="Search" v-model="search">
+            <button class="btn btn-outline-success" type="submit" v-on:click="searchBooks">Search</button>
+        </div>
+        <div v-for="(searchedBook , key) in searchedBooks" :key="key">
+            <table class="m-auto">
+                <tr>
+                    <td class="d-flex">
+                        <form @submit.prevent="editBook(book)">
+                            <table class="table-bordered">
+                                <tr>
+                                    <td class="p-3"><span class="font-weight-bold">Id:</span> {{searchedBook.id}}</td>
+                                    <td class="p-3"><span class="font-weight-bold">Name:</span> {{searchedBook.name}} <input v-if="isActive === key" type="text" placeholder="Book Name" v-model="searchedBook.name"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Autor:</span> {{searchedBook.author}} <input v-if="isActive === key" type="text" placeholder="Book Author" v-model="searchedBook.author"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Price:</span> {{searchedBook.price}} <input v-if="isActive === key" type="number" placeholder="Book Price" v-model="searchedBook.price"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Date:</span> {{searchedBook.created_at.substring(0,10)}}</td>
+
+                                    <div v-if="isActive !== key">
+                                        <td><a class="btn btn-info text-white p-3" v-on:click="toggleItem(key)" v-bind="{active: isActive === key}">Edit</a></td>
+                                    </div>
+                                    <div v-if="isActive === key">
+                                        <td> <button class="btn btn-warning p-3">Update</button></td>
+                                        <td><a class="btn btn-a p-3" v-on:click="toggleItem(null)">Close</a></td>
+                                    </div>
+                                </tr>
+                            </table>
+                        </form>
+
+                        <form @submit.prevent="removeBook(searchedBook)">
+                            <table class="table-bordered ">
+                                <tr>
+                                    <td><button class="btn btn-danger text-white p-3">X</button></td>
+                                </tr>
+                            </table>
+                        </form>
+
+                    </td>
+                </tr>
+
+            </table>
+        </div>
         <hr>
         <form @submit.prevent="addBook" class="m-4">
             <input type="text" placeholder="Book Name" v-model="book.name">
@@ -73,12 +110,15 @@
             return {
                 isActive: false,
                 books: [],
+                searchedBooks: [],
                 book: {
                     name: '',
                     author: '',
                     price: '',
                 },
                 errors: '',
+                search: '',
+
             }
         },
         mounted() {
@@ -90,7 +130,7 @@
             },
 
             addBook() {
-                Api().post('http://127.0.0.1:8000/api/books', this.book).then(response => {
+                Api().post('/books', this.book).then(response => {
                     this.success = response.data.success;
                     this.getBooks()
                 }).catch(error => {
@@ -98,8 +138,16 @@
                 });
             },
 
+            searchBooks(){
+                Api().get('/books/search?val=' + this.search).then((response) => {
+                    this.searchedBooks = response.data;
+                }).catch((error) => {
+                    console.log(error);
+                })
+            },
+
             getBooks() {
-                Api().get('http://127.0.0.1:8000/api/books').then((response) => {
+                Api().get('/books').then((response) => {
                     this.books = response.data;
                 }).catch((error) => {
                     console.log(error);
@@ -107,7 +155,7 @@
             },
 
             removeBook(book) {
-                Api().delete('http://127.0.0.1:8000/api/books/' + book.id).then((response) => {
+                Api().delete('/books/' + book.id).then((response) => {
                     this.success = response.data.success;
                     this.getBooks()
                 }).catch((error) => {
@@ -116,7 +164,7 @@
             },
 
             editBook(book) {
-                Api().put('http://127.0.0.1:8000/api/books/' + book.id, book).then((response) => {
+                Api().put('/books/' + book.id, book).then((response) => {
                     this.success = response.data.success;
                     this.getBooks()
                 }).catch((error) => {

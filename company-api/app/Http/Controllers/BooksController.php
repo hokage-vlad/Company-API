@@ -29,6 +29,12 @@ class BooksController extends Controller
     public function update(Book $book, Request $request)
     {
         $book->update($request->all());
-        return response()->json(['message'=>'updated']);
+        return response()->json(['message' => 'updated']);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('val');
+        return Book::where('name', 'like', '%'.$search.'%')->get();
     }
 }

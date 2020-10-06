@@ -24,6 +24,5 @@ Route::post('/login', [AuthController::class , 'login']);
 Route::post('/logout', [AuthController::class , 'logout']);
 Route::post('/register', [AuthController::class , 'register']);
 
-
-
-Route::resource('books', BooksController::class);
+Route::resource('books', BooksController::class)->only('index', 'destroy', 'update', 'store');
+Route::get('/books/search', [BooksController::class, 'search']);
