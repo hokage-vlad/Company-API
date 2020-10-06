@@ -5,6 +5,11 @@
             <span class="text-danger" v-text="errors.name[0]"></span><br>
             <span class="text-danger" v-text="errors.author[0]"></span>
         </div>
+        <form class="m-1">
+            <input class="mr-4" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success " type="submit">Search</button>
+        </form>
+        <hr>
         <form @submit.prevent="addBook" class="m-4">
             <input type="text" placeholder="Book Name" v-model="book.name">
             <input type="text" placeholder="Book Author" v-model="book.author">
@@ -57,7 +62,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import Api from '../api-connect/Api';
 
     export default {
         props: {
@@ -85,7 +90,7 @@
             },
 
             addBook() {
-                axios.post('http://127.0.0.1:8000/api/books', this.book).then(response => {
+                Api().post('http://127.0.0.1:8000/api/books', this.book).then(response => {
                     this.success = response.data.success;
                     this.getBooks()
                 }).catch(error => {
@@ -94,16 +99,15 @@
             },
 
             getBooks() {
-                axios.get('http://127.0.0.1:8000/api/books').then((response) => {
+                Api().get('http://127.0.0.1:8000/api/books').then((response) => {
                     this.books = response.data;
-                    console.log(response);
                 }).catch((error) => {
                     console.log(error);
                 })
             },
 
             removeBook(book) {
-                axios.delete('http://127.0.0.1:8000/api/books/' + book.id).then((response) => {
+                Api().delete('http://127.0.0.1:8000/api/books/' + book.id).then((response) => {
                     this.success = response.data.success;
                     this.getBooks()
                 }).catch((error) => {
@@ -112,10 +116,9 @@
             },
 
             editBook(book) {
-                axios.put('http://127.0.0.1:8000/api/books/' + book.id, book).then((response) => {
+                Api().put('http://127.0.0.1:8000/api/books/' + book.id, book).then((response) => {
                     this.success = response.data.success;
                     this.getBooks()
-                    console.log(response.data);
                 }).catch((error) => {
                     console.log(error);
                 })

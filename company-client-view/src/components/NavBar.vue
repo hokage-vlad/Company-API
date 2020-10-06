@@ -1,7 +1,7 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark mb-lg-5">
-            <a class="navbar-brand text-white" href="#">Book Library</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark mb-lg-3">
+            <a class="navbar-brand text-white font-weight-bold" href="#">Book Library</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+                        <router-link class="nav-link text-white" to="/">Home</router-link>
                     </li>
 
                     <li class="nav-item">
@@ -27,12 +27,7 @@
 
                 </ul>
 
-                <form class="form-inline my-2 my-lg-0 m-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-
-                <div v-if="isLoggedIn">
+                <div v-if="isLoggedIn" class="ml-auto">
                     <ul class="navbar-nav">
                         <li><h5 class="nav-item nav-link text-warning mb-0">Hello, {{ user.name }}</h5></li>
                         <span class="nav-item nav-link text-white font-weight-bold">|</span>
@@ -63,7 +58,6 @@
             if(token){
                Api().get('/user').then(response => {
                    this.$store.commit("AUTH_USER", response.data);
-                   console.log(response)
                });
             }
         },
