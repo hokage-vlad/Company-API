@@ -4,9 +4,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
 
-
-export default new VueRouter({
-
+const router = new VueRouter({
     routes: [
         {
             path: '/',
@@ -16,18 +14,45 @@ export default new VueRouter({
         {
             path: '/books',
             component: Books,
+            beforeEnter(to, from, next) {
+                if (!isLoggedIn(to)) {
+                    next('/login');
+                } else {
+                    next();
+                }
+            }
         },
 
         {
             path: '/register',
-            component: Register
+            component: Register,
+            beforeEnter(to, from, next) {
+                if (isLoggedIn(to)) {
+                    next('/books');
+                } else {
+                    next();
+                }
+            }
         },
 
         {
             path: '/login',
             component: Login,
+            beforeEnter(to, from, next) {
+                if (isLoggedIn(to)) {
+                    next('/books');
+                } else {
+                    next();
+                }
+            }
         },
     ],
-    mode: 'history'
 
+    mode: 'history',
 });
+
+function isLoggedIn() {
+    return localStorage.getItem("token");
+}
+
+export default router;
