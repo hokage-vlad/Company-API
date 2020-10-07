@@ -126,7 +126,6 @@
         },
         mounted() {
             this.getBooks();
-            this.searchBooks();
         },
         methods: {
             toggleItem(index) {
