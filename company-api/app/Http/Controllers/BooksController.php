@@ -35,6 +35,6 @@ class BooksController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('val');
-        return Book::where('name', 'like', '%'.$search.'%')->get();
+        return Book::where('name', 'like', '%' . $search . '%')->get();
     }
 }

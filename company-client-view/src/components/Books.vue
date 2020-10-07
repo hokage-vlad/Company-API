@@ -9,18 +9,18 @@
             <input class="mr-4" type="text" placeholder="Search" aria-label="Search" v-model="search">
             <button class="btn btn-outline-success" type="submit" v-on:click="searchBooks">Search</button>
         </div>
-        <div v-for="(searchedBook , key) in searchedBooks" :key="key">
+        <div v-for="(searchBook , key) in searchedBooks" :key="key">
             <table class="m-auto">
                 <tr>
                     <td class="d-flex">
                         <form @submit.prevent="editBook(book)">
                             <table class="table-bordered">
                                 <tr>
-                                    <td class="p-3"><span class="font-weight-bold">Id:</span> {{searchedBook.id}}</td>
-                                    <td class="p-3"><span class="font-weight-bold">Name:</span> {{searchedBook.name}} <input v-if="isActive === key" type="text" placeholder="Book Name" v-model="searchedBook.name"></td>
-                                    <td class="p-3"><span class="font-weight-bold">Autor:</span> {{searchedBook.author}} <input v-if="isActive === key" type="text" placeholder="Book Author" v-model="searchedBook.author"></td>
-                                    <td class="p-3"><span class="font-weight-bold">Price:</span> {{searchedBook.price}} <input v-if="isActive === key" type="number" placeholder="Book Price" v-model="searchedBook.price"></td>
-                                    <td class="p-3"><span class="font-weight-bold">Date:</span> {{searchedBook.created_at.substring(0,10)}}</td>
+                                    <td class="p-3"><span class="font-weight-bold">Id:</span> {{searchBook.id}}</td>
+                                    <td class="p-3"><span class="font-weight-bold">Name:</span> {{searchBook.name}} <input v-if="isActive === key" type="text" placeholder="Book Name" v-model="searchedBook.name"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Autor:</span> {{searchBook.author}} <input v-if="isActive === key" type="text" placeholder="Book Author" v-model="searchedBook.author"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Price:</span> {{searchBook.price}} <input v-if="isActive === key" type="number" placeholder="Book Price" v-model="searchedBook.price"></td>
+                                    <td class="p-3"><span class="font-weight-bold">Date:</span> {{searchBook.created_at.substring(0,10)}}</td>
 
                                     <div v-if="isActive !== key">
                                         <td><a class="btn btn-info text-white p-3" v-on:click="toggleItem(key)" v-bind="{active: isActive === key}">Edit</a></td>
@@ -33,7 +33,7 @@
                             </table>
                         </form>
 
-                        <form @submit.prevent="removeBook(searchedBook)">
+                        <form @submit.prevent="removeBook(searchBook)">
                             <table class="table-bordered ">
                                 <tr>
                                     <td><button class="btn btn-danger text-white p-3">X</button></td>
@@ -85,10 +85,8 @@
                                     </tr>
                                 </table>
                             </form>
-
                         </td>
                     </tr>
-
                 </table>
             </div>
             </div>
@@ -111,6 +109,11 @@
                 isActive: false,
                 books: [],
                 searchedBooks: [],
+                searchBook: {
+                    name: '',
+                    author: '',
+                    price: '',
+                },
                 book: {
                     name: '',
                     author: '',
@@ -123,6 +126,7 @@
         },
         mounted() {
             this.getBooks();
+            this.searchBooks();
         },
         methods: {
             toggleItem(index) {
@@ -157,6 +161,7 @@
             removeBook(book) {
                 Api().delete('/books/' + book.id).then((response) => {
                     this.success = response.data.success;
+                    this.searchBooks();
                     this.getBooks()
                 }).catch((error) => {
                     console.log(error);
