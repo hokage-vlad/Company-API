@@ -18,10 +18,6 @@
                 <div class="form-group">
                     <button @click.prevent="loginUser" type="submit" class="btn btn-success btn-block">Log in</button>
                 </div>
-                <div class="clearfix">
-                    <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                    <a href="#" class="float-right">Forgot Password?</a>
-                </div>
             </form>
             </div>
         </div>
