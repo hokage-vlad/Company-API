@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BooksRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
-use function GuzzleHttp\Promise\all;
 
 class BooksController extends Controller
 {
