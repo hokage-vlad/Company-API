@@ -41,9 +41,8 @@ const router = new VueRouter({
             beforeEnter(to, from, next) {
                 if (isLoggedIn(to)) {
                     next('/books');
-                } else {
-                    next();
                 }
+                next();
             }
         },
     ],
